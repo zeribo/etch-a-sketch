@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    background-color: unset;
+    background-color: rgb(231, 231, 231);
 
     height: 100vh;
 }
@@ -16,6 +16,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    
 }
 
 .container {
@@ -45,9 +50,10 @@ body {
     
 }
 
-.shade {
+/*.shade {
     background-color: green;
-}
+} */
+
 
 .color {
     padding: 5px;

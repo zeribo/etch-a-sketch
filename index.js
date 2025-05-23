@@ -1,6 +1,13 @@
 const modal = document.querySelector('.modal');
 const container = document.querySelector('.container');
 
+function getRandomRgbColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 
 function gridMaker(ratio) {
 
@@ -19,9 +26,30 @@ function gridMaker(ratio) {
 
         container.appendChild(row_container);
     }
+
+    shader();
 }
 
-const clear_btn = document.querySelector('#clear');
+
+
+
+function toClear() {
+
+    const clear_btn = document.querySelector('#clear');
+    
+
+    clear_btn.addEventListener('click', () => {
+        const squares = document.querySelectorAll(('.grid'));
+        console.log('meow');
+        squares.forEach(square => {
+            square.style.backgroundColor = 'white';
+        });
+
+    });
+}
+
+toClear();
+
 
 function shader() {
     const squares = document.querySelectorAll('.grid');
@@ -30,16 +58,18 @@ function shader() {
 
         square.addEventListener('mouseenter', () => {
 
-            square.classList.add('shade');
+            console.log('kazak');
+
+            if (rainbow.classList.contains('active-color')) {
+                square.style.backgroundColor = getRandomRgbColor();
+            }
+            else if (shade.classList.contains('active-color')) {
+                square.style.backgroundColor = 'green';
+            }
 
         });
     });
 
-    clear_btn.addEventListener('click', () => {
-    squares.forEach(square => {
-        square.style.backgroundColor = 'white';
-    });
-});
 }
 
 
@@ -79,14 +109,27 @@ set_btn.addEventListener('click', () => {
 });
 
 const shade = document.querySelector('#shade');
+shade.classList.add('active-color')
+
 const rainbow = document.querySelector('#rainbow');
+
 
 shade.addEventListener('click', () => {
     if (rainbow.classList.contains('active-color')) {
         rainbow.classList.remove('active-color');
     }
+
+    shade.classList.add('active-color');
     
 }); 
+
+rainbow.addEventListener('click', () => {
+    if (shade.classList.contains('active-color')) {
+        shade.classList.remove('active-color')
+    }
+
+    rainbow.classList.add('active-color');
+})
 
 
 
