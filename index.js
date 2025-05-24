@@ -9,6 +9,34 @@ function getRandomRgbColor() {
 }
 
 
+document.querySelector('.container').addEventListener('mouseover', (e) => {
+    if (e.target.matches('.grid')) {
+        
+        if (rainbow.classList.contains('active-color'))  {
+            e.target.style.backgroundColor = getRandomRgbColor();
+        }
+        else if (shade.classList.contains('active-color')) {
+            e.target.style.backgroundColor = 'green';
+        }
+        
+    }
+});
+
+
+/*document.querySelector('#clear').addEventListener('click', (e) => {
+    if (e.target.matches('.grid')) {
+        e.target.style.backgroundColor = 'white';
+       
+        
+    }
+}); */
+
+
+
+
+
+
+
 function gridMaker(ratio) {
 
     for (let i = 0; i < ratio; i++) {
@@ -27,7 +55,7 @@ function gridMaker(ratio) {
         container.appendChild(row_container);
     }
 
-    shader();
+    
 }
 
 
@@ -51,30 +79,11 @@ function toClear() {
 toClear();
 
 
-function shader() {
-    const squares = document.querySelectorAll('.grid');
 
-    squares.forEach(square => {
-
-        square.addEventListener('mouseenter', () => {
-
-            console.log('kazak');
-
-            if (rainbow.classList.contains('active-color')) {
-                square.style.backgroundColor = getRandomRgbColor();
-            }
-            else if (shade.classList.contains('active-color')) {
-                square.style.backgroundColor = 'green';
-            }
-
-        });
-    });
-
-}
 
 
 gridMaker(16);
-shader();
+
 
 
 
@@ -94,7 +103,7 @@ set_btn.addEventListener('click', () => {
 
     const int_inp = parseInt(input.value);
 
-    if (int_inp < 1 || int_inp > 100) {
+    if ((int_inp < 1 || int_inp > 100) || input.value.trim() === "") {
         error_num.textContent = 'Wrong value!';
         return;
     }
@@ -103,7 +112,7 @@ set_btn.addEventListener('click', () => {
 
 
     gridMaker(int_inp);
-    shader();
+    
 
 
 });
