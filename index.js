@@ -16,7 +16,7 @@ document.querySelector('.container').addEventListener('mouseover', (e) => {
             e.target.style.backgroundColor = getRandomRgbColor();
         }
         else if (shade.classList.contains('active-color')) {
-            e.target.style.backgroundColor = 'green';
+            e.target.style.backgroundColor = '#3691ca'
         }
         
     }

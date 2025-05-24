@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    
+    font-family: "Audiowide", sans-serif;
 
     height: 100vh;
 }
@@ -15,12 +15,23 @@ body {
 .modal {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
+    justify-content: space-evenly;
+    gap: 50px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 50px;
     border-radius: 10px;
     
+}
+
+#controls-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    gap: 10px;
+
 }
 
 .container {
@@ -30,6 +41,7 @@ body {
     display: flex;
     flex-direction: column;
 
+    border: 2px solid #e0e0e0;
     flex-shrink: 0;
     overflow: hidden;
     
@@ -44,7 +56,7 @@ body {
 }
 
 .grid {
-    border: 1px solid green;
+    border: 1px solid #6ac5fe;;
     flex-grow: 1;
     flex-shrink: 0;
     
@@ -63,6 +75,10 @@ button {
     background-color: #6ac5fe;
     border-width: 0px;
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
+    font-family: inherit;
+
+    color: white;
 }
 
 .active-color {
@@ -78,6 +94,17 @@ button {
 .color {
     display: flex;
     gap: 10px;
+}
+
+
+input {
+    padding: 5px;
+    width: 50px;
+    height: 30px;
+    border-radius: 8px;
+
+    font-family: inherit;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 
