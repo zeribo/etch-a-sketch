@@ -23,13 +23,6 @@ document.querySelector('.container').addEventListener('mouseover', (e) => {
 });
 
 
-/*document.querySelector('#clear').addEventListener('click', (e) => {
-    if (e.target.matches('.grid')) {
-        e.target.style.backgroundColor = 'white';
-       
-        
-    }
-}); */
 
 
 
@@ -68,7 +61,7 @@ function toClear() {
 
     clear_btn.addEventListener('click', () => {
         const squares = document.querySelectorAll(('.grid'));
-        console.log('meow');
+        
         squares.forEach(square => {
             square.style.backgroundColor = 'white';
         });
@@ -143,3 +136,33 @@ rainbow.addEventListener('click', () => {
 
 
 
+function makeRipple(event) {
+    const button = event.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    radius = diameter / 2;
+
+  
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - (button.offsetLeft + radius)}px`;
+    circle.style.top = `${event.clientY - (button.offsetTop + radius)}px`;
+    circle.classList.add("ripple");
+
+      const ripple = button.getElementsByClassName("ripple")[0];
+
+    if (ripple) {
+        ripple.remove();
+    }
+
+    button.appendChild(circle);
+    console.log('rippie');
+
+   
+}
+
+ const buttons = document.querySelectorAll("button");
+
+for (const button of buttons) {
+    button.addEventListener("click", makeRipple);
+}
